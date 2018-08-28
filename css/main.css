@@ -1,0 +1,15 @@
+header {
+      width: 100vw;
+      height: 10vh;
+
+      background-color: #24B73D;
+      box-shadow: 5px 5px 10px 5px gray;
+}
+header:hover {
+
+}
+
+#content {
+      width: 100vw;
+      height: 90vh;
+}

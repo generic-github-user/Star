@@ -6,17 +6,26 @@
                   Star
             </title>
 
-            <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
             <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
             <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
             <link rel="stylesheet" href=".././css/main.css" />
+
+            <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+            <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+            <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+            <script type="text/javascript" src="../javascript/initialize.js"></script>
+            <script type="text/javascript" src="../javascript/create_post.js"></script>
       </head>
       <body>
             <header>
 
             </header>
+            <div id="content">
+                  <button onclick="publish_post();" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" >
+                        <i class="material-icons">add</i>
+                  </button>
+            </div>
       </body>
 </html>
