@@ -18,7 +18,7 @@ const publish_post = function () {
 
       var snackbar_container = document.querySelector("#new-post-snackbar");
       var data = {
-            "message": "Button color changed.",
+            "message": "Post created.",
             "timeout": 5000,
             "actionHandler": view_post,
             "actionText": "View"
