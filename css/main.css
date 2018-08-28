@@ -8,14 +8,3 @@ header {
 header:hover {
 
 }
-
-footer {
-      width: 100vw;
-      height: 200px;
-
-      background-color: #006D1F;
-      box-shadow: 5px -5px 10px 5px gray;
-}
-footer:hover {
-
-}
