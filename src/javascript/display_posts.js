@@ -6,14 +6,14 @@ firebase.database().ref("posts").on("value",  function (post_data) {
             (key) => {
                   var post = post_data.val()[key];
 
-                  var post_html = "\
-                        <div class='post'>\n\
-                              <h2>\n\
-                              " + post.title + "\n\
-                              </h2>\n\
-                        </div>\n\
-                  ";
-                  posts.innerHTML += post_html;
+                  var post_main = document.createElement("div");
+                  post_main.className = "post";
+
+                  var post_title = document.createElement("h3");
+                  post_title.innerHTML = post.title;
+
+                  post_main.appendChild(post_title);
+                  posts.appendChild(post_main);
             }
       );
 });
