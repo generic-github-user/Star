@@ -10,23 +10,36 @@ const view_post = function () {
 
 const publish_post = function () {
       var title = document.querySelector("#new-post-title-input").value;
-      var note = document.querySelector("#new-post-note-input").value;
+      if (title || title != "") {
+            var note = document.querySelector("#new-post-note-input").value;
 
-      var user_id = firebase.auth().currentUser.uid;
-      var key = firebase.database().ref().child('posts').push().key;
-      database.ref("posts/" + key).set({
-            "user_id": user_id,
-            "title": title,
-            "note": note
-      });
-      document.querySelector("#new-post-panel").className = "";
+            var user_id = firebase.auth().currentUser.uid;
+            var key = firebase.database().ref().child('posts').push().key;
+            database.ref("posts/" + key).set({
+                  "user_id": user_id,
+                  "title": title,
+                  "note": note
+            });
+            document.querySelector("#new-post-panel").className = "";
 
-      var snackbar_container = document.querySelector("#new-post-snackbar");
-      var data = {
-            "message": "Post created.",
-            "timeout": 5000,
-            "actionHandler": view_post,
-            "actionText": "View"
-      };
-      snackbar_container.MaterialSnackbar.showSnackbar(data);
+            var snackbar_container = document.querySelector("#new-post-snackbar");
+            var data = {
+                  "message": "Post created.",
+                  "timeout": 5000,
+                  "actionHandler": view_post,
+                  "actionText": "View"
+            };
+            snackbar_container.MaterialSnackbar.showSnackbar(data);
+      }
+      else {
+            var dialog = document.querySelector('dialog');
+            // if (! dialog.showModal) {
+            //       dialogPolyfill.registerDialog(dialog);
+            // }
+            dialog.showModal();
+            
+            dialog.querySelector(".close").addEventListener("click", function() {
+                  dialog.close();
+            });
+      }
 }
