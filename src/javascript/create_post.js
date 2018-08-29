@@ -1,6 +1,13 @@
 var database = firebase.database();
 
 const new_post = function () {
+      var title = document.querySelector("#new-post-title-input");
+      title.value = "";
+      title.parentNode.classList.remove("is-dirty");
+      var note = document.querySelector("#new-post-note-input");
+      note.value = "";
+      note.parentNode.classList.remove("is-dirty");
+
       document.querySelector("#new-post-panel").className = "visible";
 }
 
@@ -32,12 +39,12 @@ const publish_post = function () {
             snackbar_container.MaterialSnackbar.showSnackbar(data);
       }
       else {
-            var dialog = document.querySelector('dialog');
+            var dialog = document.querySelector("dialog");
             // if (! dialog.showModal) {
             //       dialogPolyfill.registerDialog(dialog);
             // }
             dialog.showModal();
-            
+
             dialog.querySelector(".close").addEventListener("click", function() {
                   dialog.close();
             });
