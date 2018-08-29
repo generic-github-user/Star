@@ -23,18 +23,37 @@
             <header>
 
             </header>
+            <div id="new-post-panel">
+                  <h2>
+                        New Post
+                  </h2>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="new-post-title-input">
+                        <label class="mdl-textfield__label" for="new-post-title-input">Title</label>
+                  </div>
+                  <button id="publish-post-button" onclick="publish_post();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                        Publish Post
+                  </button>
+
+                  <button id="close-panel-button" onclick="this.parentNode.className = '';" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                        <i class="material-icons">close</i>
+                  </button>
+                  <div class="mdl-tooltip" data-mdl-for="close-panel-button">
+                        Close
+                  </div>
+            </div>
             <div id="content">
                   <div id="post-container">
 
                   </div>
             </div>
-            <button onclick="publish_post();" id="new-post-button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" >
+
+            <button onclick="new_post();" id="new-post-button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" >
                   <i class="material-icons">add</i>
             </button>
             <div class="mdl-tooltip" data-mdl-for="new-post-button">
                   New Post
             </div>
-
             <div id="new-post-snackbar" class="mdl-js-snackbar mdl-snackbar">
                   <div class="mdl-snackbar__text"></div>
                   <button class="mdl-snackbar__action" type="button"></button>
