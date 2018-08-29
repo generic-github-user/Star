@@ -33,7 +33,7 @@ header:hover {
       height: 0vh;
 
       margin: 5%;
-      padding: 0%;
+      padding: 0% 2%;
 
       background-color: #EEE;
       box-shadow: 2px 2px 2px #444;
@@ -42,18 +42,21 @@ header:hover {
 
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1s ease, height 1s ease, padding 1s ease, visibility 0s ease 1s;
+      transition: opacity 1s ease, height 1s ease, visibility 0s ease 1s;
 }
 .visible {
       height: 25vh !important;
       opacity: 1 !important;
-      padding: 2% !important;
       visibility: visible !important;
-      transition: opacity 1s ease, height 1s ease, padding 1s ease !important;
+      transition: opacity 1s ease, height 1s ease !important;
 }
 
 #new-post-panel > * {
       margin: 0;
+}
+
+#new-post-panel > h3 {
+      margin-top: 2%;
 }
 
 #publish-post-button {
@@ -86,14 +89,14 @@ header:hover {
       margin: 1% 0%;
 
       background-color: #24B73D;
-      box-shadow: 2px 2px 2px #444;
-      border-radius: 5px;
+      box-shadow: 2px 2px 4px #555;
+      border-radius: 2px;
 
       transition: border-radius 1s ease, background-color 1.5s ease;
 }
 .post:hover {
       background-color: #0AA825;
-      border-radius: 10px;
+      border-radius: 5px;
 
       transition: border-radius 1s ease, background-color 1.5s ease;
 }
