@@ -24,13 +24,23 @@
 
             </header>
             <div id="new-post-panel">
-                  <h2>
+                  <h3>
                         New Post
-                  </h2>
+                  </h3>
+
+                  <!-- New post options -->
+                  <!-- Post title -->
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" id="new-post-title-input">
                         <label class="mdl-textfield__label" for="new-post-title-input">Title</label>
                   </div>
+                  <br />
+                  <!-- Post notes -->
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="new-post-note-input">
+                        <label class="mdl-textfield__label" for="new-post-note-input">Note</label>
+                  </div>
+
                   <button id="publish-post-button" onclick="publish_post();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                         Publish Post
                   </button>

@@ -12,7 +12,13 @@ firebase.database().ref("posts").on("value",  function (post_data) {
                   var post_title = document.createElement("h3");
                   post_title.innerHTML = post.title;
 
+                  var post_note = document.createElement("h5");
+                  post_note.innerHTML = post.note;
+
                   post_main.appendChild(post_title);
+                  post_main.appendChild(document.createElement("br"));
+                  post_main.appendChild(document.createElement("br"));
+                  post_main.appendChild(post_note);
                   posts.appendChild(post_main);
             }
       );
