@@ -1,5 +1,3 @@
-var database = firebase.database();
-
 const new_post = function () {
       var title = document.querySelector("#new-post-title-input");
       title.value = "";
