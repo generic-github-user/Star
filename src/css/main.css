@@ -32,7 +32,7 @@ header:hover {
       width: 90vw;
       height: 0vh;
 
-      margin: 5%;
+      margin: 5vw;
       padding: 0% 2%;
 
       background-color: #EEE;
@@ -85,7 +85,7 @@ header:hover {
       width: 100%;
       height: 100px;
 
-      padding: 0%;
+      padding: 10px;
       margin: 1% 0%;
 
       background-color: #24B73D;
@@ -100,9 +100,26 @@ header:hover {
 
       transition: border-radius 1s ease, background-color 1.5s ease;
 }
-.post > * {
-      position: absolute;
-      margin: 1%;
+.post * {
+      margin: 0px !important;
+}
+
+.left {
+      width: 50%;
+      height: 100px;
+      float: left;
+}
+.right {
+      width: 50%;
+      height: 100px;
+      float: right;
+}
+
+.post-rating-button {
+      width: 18%;
+      height: 80px !important;
+
+      margin: 0px 1% !important;
 }
 
 #content {
