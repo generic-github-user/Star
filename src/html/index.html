@@ -31,11 +31,17 @@
                         <input class="mdl-textfield__input" type="text" id="new-post-title-input">
                         <label class="mdl-textfield__label" for="new-post-title-input">Title</label>
                   </div>
+                  <div class="mdl-tooltip" data-mdl-for="new-post-title-input">
+                        Title for new post
+                  </div>
                   <br />
                   <!-- Post notes -->
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" id="new-post-note-input">
                         <label class="mdl-textfield__label" for="new-post-note-input">Note</label>
+                  </div>
+                  <div class="mdl-tooltip" data-mdl-for="new-post-note-input">
+                        Optional note for new post
                   </div>
 
                   <button id="publish-post-button" onclick="publish_post();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
