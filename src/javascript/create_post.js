@@ -23,7 +23,8 @@ const publish_post = function () {
             database.ref("posts/" + key).set({
                   "user_id": user_id,
                   "title": title,
-                  "note": note
+                  "note": note,
+                  "num_ratings": 0
             });
             document.querySelector("#new-post-panel").className = "";
 

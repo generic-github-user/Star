@@ -27,6 +27,17 @@ firebase.database().ref("posts").once("value").then(
                               left.appendChild(post_note);
                         }
 
+                        if (post.num_ratings !== undefined) {
+                              var post_ratings = document.createElement("p");
+                              if (post.num_ratings == 1) {
+                                    post_ratings.innerHTML = post.num_ratings + " vote";
+                              }
+                              else {
+                                    post_ratings.innerHTML = post.num_ratings + " votes";
+                              }
+                              left.appendChild(post_ratings);
+                        }
+
                         // var slider = document.createElement("input");
                         // slider.setAttribute("type", "range");
                         // slider.setAttribute("value", "0");

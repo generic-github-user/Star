@@ -28,6 +28,7 @@ const update_post_ratings = function () {
                                                 );
 
                                                 if (rating.val()) {
+                                                      // Now *that's* some function nesting
                                                       document.querySelector("#post-" + key)
                                                       .querySelector("#button-" + rating.val().rating)
                                                       .style.borderRadius = "100%";
