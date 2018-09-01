@@ -1,17 +1,3 @@
-const month_names = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "November",
-      "December"
-]
-
 firebase.database().ref("posts").once("value").then(
       function (data) {
             var post_data = data.val();
@@ -31,9 +17,15 @@ firebase.database().ref("posts").once("value").then(
                         var right = document.createElement("div");
                         right.className = "right";
 
+                        var post_title_link = document.createElement("a");
+                        var destination_url = "post.html?id=" + key;
+                        post_title_link.setAttribute("href", destination_url)
+
                         var post_title = document.createElement("h3");
                         post_title.innerHTML = post.title;
-                        left.appendChild(post_title);
+
+                        post_title_link.appendChild(post_title);
+                        left.appendChild(post_title_link);
 
                         if (post.note) {
                               var post_note = document.createElement("h5");
@@ -41,37 +33,13 @@ firebase.database().ref("posts").once("value").then(
                               left.appendChild(post_note);
                         }
 
-                        var created = new Date(post.created);
+                        var post_created = document.createElement("p");
+                        post_created.innerHTML = post_created_formatted(post);
+                        left.appendChild(post_created);
 
-                        var hours = created.getHours();
-                        if (hours < 10) {
-                              hours = "0" + hours;
-                        }
-
-                        var minutes = created.getMinutes();
-                        if (minutes < 10) {
-                              minutes = "0" + minutes;
-                        }
-
-                        var date = month_names[created.getMonth()] + " " + created.getDate() + ", " + created.getFullYear();
-                        var time = hours + ":" + minutes;
-
-                        if (post.created) {
-                              var post_created = document.createElement("p");
-                              post_created.innerHTML = date + " - " + time;
-                              left.appendChild(post_created);
-                        }
-
-                        if (post.num_ratings !== undefined) {
-                              var post_ratings = document.createElement("p");
-                              if (post.num_ratings == 1) {
-                                    post_ratings.innerHTML = post.num_ratings + " vote";
-                              }
-                              else {
-                                    post_ratings.innerHTML = post.num_ratings + " votes";
-                              }
-                              left.appendChild(post_ratings);
-                        }
+                        var post_ratings = document.createElement("p");
+                        post_ratings.innerHTML = post_ratings_formatted(post);
+                        left.appendChild(post_ratings);
 
                         // var slider = document.createElement("input");
                         // slider.setAttribute("type", "range");
@@ -129,42 +97,7 @@ firebase.database().ref("posts").once("value").then(
                         //       }
                         // ];
 
-                        var colors = [
-                              {
-                                    "red": 24,
-                                    "green": 93,
-                                    "blue": 204
-                              },
-                              {
-                                    "red": 0,
-                                    "green": 255,
-                                    "blue": 0
-                              }
-                        ];
-
-                        for (var i = 0; i < 5; i ++) {
-                              button = document.createElement("button");
-                              var factor = i / 5;
-                              var color = "rgba("
-                                     + ((colors[1].red * factor) + (colors[0].red * (1 - factor))) + ", "
-                                     + ((colors[1].green * factor) + (colors[0].green * (1 - factor))) + ", "
-                                     + ((colors[1].blue * factor) + (colors[0].blue * (1 - factor))) + ", "
-                                    + "1)";
-                              button.style = "background-color: " + color + " !important; filter: brightness(1"
-                              button.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored post-rating-button";
-                              button.id = "button-" + (i * 25);
-                              // addEventListener cannot be used
-                              button.setAttribute("onclick", "rate_post('" + key + "', " + (i * 25) + ");");
-
-                              if (i == 0) {
-                                    button.innerHTML += "<i class='material-icons'>remove</i>";
-                              }
-                              else if (i == 4) {
-                                    button.innerHTML += "<i class='material-icons'>add</i>";
-                              }
-
-                              right.appendChild(button);
-                        };
+                        right.appendChild(generate_rating_buttons(key));
 
                         post_main.appendChild(left);
                         post_main.appendChild(right);
