@@ -24,7 +24,8 @@ const publish_post = function () {
                   "user_id": user_id,
                   "title": title,
                   "note": note,
-                  "num_ratings": 0
+                  "num_ratings": 0,
+                  "created": Date.now()
             });
             document.querySelector("#new-post-panel").className = "";
 

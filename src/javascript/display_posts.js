@@ -1,3 +1,17 @@
+const month_names = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "November",
+      "December"
+]
+
 firebase.database().ref("posts").once("value").then(
       function (data) {
             var post_data = data.val();
@@ -25,6 +39,27 @@ firebase.database().ref("posts").once("value").then(
                               var post_note = document.createElement("h5");
                               post_note.innerHTML = post.note;
                               left.appendChild(post_note);
+                        }
+
+                        var created = new Date(post.created);
+
+                        var hours = created.getHours();
+                        if (hours < 10) {
+                              hours = "0" + hours;
+                        }
+
+                        var minutes = created.getMinutes();
+                        if (minutes < 10) {
+                              minutes = "0" + minutes;
+                        }
+
+                        var date = month_names[created.getMonth()] + " " + created.getDate() + ", " + created.getFullYear();
+                        var time = hours + ":" + minutes;
+
+                        if (post.created) {
+                              var post_created = document.createElement("p");
+                              post_created.innerHTML = date + " - " + time;
+                              left.appendChild(post_created);
                         }
 
                         if (post.num_ratings !== undefined) {
