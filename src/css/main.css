@@ -25,6 +25,10 @@ header:hover {
 
 }
 
+button {
+      user-select: none;
+}
+
 #new-post-panel {
       position: fixed;
       z-index: 1;
