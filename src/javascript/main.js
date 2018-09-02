@@ -69,3 +69,8 @@ const post_ratings_formatted = function (post) {
             return "";
       }
 }
+
+const logout = function () {
+      firebase.auth().signOut();
+      // window.location.reload();
+}
