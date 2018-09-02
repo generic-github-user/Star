@@ -45,62 +45,6 @@ firebase.database().ref("posts").once("value").then(
                         post_ratings.innerHTML = post_ratings_formatted(post);
                         left.appendChild(post_ratings);
 
-                        // var slider = document.createElement("input");
-                        // slider.setAttribute("type", "range");
-                        // slider.setAttribute("value", "0");
-                        // slider.setAttribute("tabindex", "0");
-                        // slider.setAttribute("min", "0");
-                        // slider.setAttribute("max", "100");
-                        // slider.className = "mdl-slider mdl-js-slider";
-                        // right.appendChild(slider);
-
-                        // var slider = document.createElement("input");
-                        // slider.outerHTML = "<input class='mdl-slider mdl-js-slider' type='range' min='0' max='100' value='0' tabindex='0'>";
-                        // right.appendChild(slider);
-
-                        // right.innerHTML += "<input class='mdl-slider mdl-js-slider' type='range' min='0' max='100' value='0' tabindex='0'>";
-
-                        // var colors = [
-                        //       {
-                        //             "red": 237,
-                        //             "green": 11,
-                        //             "blue": 11
-                        //       },
-                        //       {
-                        //             "red": 237,
-                        //             "green": 134,
-                        //             "blue": 9
-                        //       },
-                        //       {
-                        //             "red": 255,
-                        //             "green": 255,
-                        //             "blue": 0
-                        //       },
-                        //       {
-                        //             "red": 15,
-                        //             "green": 229,
-                        //             "blue": 0
-                        //       },
-                        //       {
-                        //             "red": 0,
-                        //             "green": 183,
-                        //             "blue": 229
-                        //       }
-                        // ];
-
-                        // var colors = [
-                        //       {
-                        //             "red": 131,
-                        //             "green": 0,
-                        //             "blue": 255
-                        //       },
-                        //       {
-                        //             "red": 25,
-                        //             "green": 182,
-                        //             "blue": 255
-                        //       }
-                        // ];
-
                         right.appendChild(generate_rating_buttons(key));
 
                         post_main.appendChild(left);
