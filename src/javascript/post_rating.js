@@ -79,7 +79,7 @@ const update_post_ratings = function () {
                                                             // Now *that's* some function nesting
                                                             document.querySelector("#post-" + key)
                                                             .querySelector("#button-" + rating.val().rating)
-                                                            .style.borderRadius = "100%";
+                                                            .style.borderRadius = "100px";
                                                       }
                                                 }
                                           });
