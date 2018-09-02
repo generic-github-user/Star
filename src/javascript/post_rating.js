@@ -1,3 +1,6 @@
+// post_rating.js
+// Functions related to allowing the user to rate posts and displaying ratings
+
 const rate_post = function (post_id, rating) {
       var user_id = firebase.auth().currentUser.uid;
       database.ref("posts/" + post_id + "/ratings/" + user_id).set({

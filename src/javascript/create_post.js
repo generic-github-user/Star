@@ -1,3 +1,6 @@
+// create_post.js
+// Functions for creating a new Star post
+
 const new_post = function () {
       var title = document.querySelector("#new-post-title-input");
       title.value = "";

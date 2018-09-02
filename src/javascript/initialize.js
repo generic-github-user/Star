@@ -1,3 +1,6 @@
+// initialize.js
+// Initialize Firebase app for use with Firebase SDK and API functions, primarily data storage in the Realtime Database
+
 // Initialize Firebase
 var config = {
       apiKey: "AIzaSyBxupWBF6M4dVv15fZ1Oxf_EDi4FJ5iAzQ",

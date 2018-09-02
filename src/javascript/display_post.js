@@ -1,3 +1,6 @@
+// display_post.js
+// Functions for displaying a single post on the individual post page
+
 var post_id = getQueryVariable("id");
 firebase.database().ref("posts/" + post_id).once("value").then(
       (post) => {

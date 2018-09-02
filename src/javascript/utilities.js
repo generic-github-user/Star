@@ -1,3 +1,6 @@
+// utilities.js
+// Miscellaneous utility functions
+
 // https://css-tricks.com/snippets/javascript/get-url-variables/
 function getQueryVariable (variable) {
        var query = window.location.search.substring(1);
