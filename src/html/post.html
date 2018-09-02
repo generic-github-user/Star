@@ -30,6 +30,24 @@
             <!-- Div containing post information (filled in by display_post.js) -->
             <div id="post"></div>
 
+            <dialog class="mdl-dialog" id="delete-post-dialog">
+                  <h4 class="mdl-dialog__title">Delete Post?</h4>
+                  <div class="mdl-dialog__content">
+                        <p>
+                              Deleting a post is permanent and cannot be undone. Are you sure you wish to proceed?
+                        </p>
+                  </div>
+                  <div class="mdl-dialog__actions">
+                        <button type="button" class="mdl-button close">Cancel</button>
+                        <button type="button" class="mdl-button confirm warning">Delete</button>
+                  </div>
+            </dialog>
+
+            <div id="delete-post-snackbar" class="mdl-js-snackbar mdl-snackbar">
+                  <div class="mdl-snackbar__text"></div>
+                  <button class="mdl-snackbar__action" type="button"></button>
+            </div>
+
             <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
             <script type="text/javascript" src="../javascript/initialize.js"></script>
             <script type="text/javascript" src="../javascript/main.js"></script>

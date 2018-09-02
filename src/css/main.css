@@ -75,6 +75,16 @@ button {
       right: 10px;
 }
 
+#delete-post-button {
+      position: absolute;
+
+      top: 50px;
+      right: 50px;
+}
+
+.warning {
+      color: #D00;
+}
 
 #post-container {
       width: 96%;
@@ -128,6 +138,18 @@ button {
       margin: 0px 1% !important;
       transition: border-radius 0.5s ease;
 }
+
+.mdl-dialog {
+      width: 50%;
+}
+.mdl-dialog__title {
+      font-size: 200%;
+}
+
+/* .mdl-dialog__actions > button {
+      width: 100%;
+      height: 50px;
+} */
 
 #content {
       width: 100%;
