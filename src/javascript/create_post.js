@@ -1,6 +1,7 @@
 // create_post.js
 // Functions for creating a new Star post
 
+// Open new post window to create a new post
 const new_post = function () {
       var title = document.querySelector("#new-post-title-input");
       title.value = "";
@@ -12,12 +13,16 @@ const new_post = function () {
       document.querySelector("#new-post-panel").className = "visible";
 }
 
+// View post just created by the user (not currently supported)
 const view_post = function () {
       window.alert("This featured has not yet been added - please check back later.");
 }
 
+// Publish a post and store information in database
 const publish_post = function () {
+      // Get title from title text box
       var title = document.querySelector("#new-post-title-input").value;
+      // Confirm that user has entered a title into the title text field
       if (title || title != "") {
             var note = document.querySelector("#new-post-note-input").value;
 
@@ -41,11 +46,15 @@ const publish_post = function () {
             };
             snackbar_container.MaterialSnackbar.showSnackbar(data);
       }
+      // 
       else {
+            // Get dialog element and store it in a variable
             var dialog = document.querySelector("dialog");
+            // Display dialog polyfill for older browsers that do not support the experimental HTML <dialog> element
             // if (! dialog.showModal) {
             //       dialogPolyfill.registerDialog(dialog);
             // }
+            // Display dialog box
             dialog.showModal();
 
             dialog.querySelector(".close").addEventListener("click", function() {
