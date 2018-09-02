@@ -108,6 +108,10 @@ button {
       margin: 0px !important;
 }
 
+.post-title {
+      display: inline-block;
+}
+
 .left {
       width: 50%;
       height: 100px;
