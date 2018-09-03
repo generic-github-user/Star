@@ -23,7 +23,8 @@ firebase.database().ref("posts/" + post_id).once("value").then(
             // Fill in HTML content of post
             console.log("Displaying post content . . .");
             content.innerHTML = "\
-                  <h1>" + post_info.title + "</h1>\
+                  <h1>" + linkifyHtml(post_info.title) + "</h1>\
+                  <h2>" + linkifyHtml(post_info.note) + "</h2>\
                   <h3>" + post_created_formatted(post_info) + "</h3>\
                   <h3>" + post_ratings_formatted(post_info) + "</h3>\
             ";

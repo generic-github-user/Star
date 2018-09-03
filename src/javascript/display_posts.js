@@ -26,14 +26,15 @@ firebase.database().ref("posts").once("value").then(
 
                         var post_title = document.createElement("h3");
                         post_title.className = "post-title";
-                        post_title.innerHTML = post.title;
+                        post_title.innerHTML = linkifyHtml(post.title);
+
 
                         post_title_link.appendChild(post_title);
                         left.appendChild(post_title_link);
 
                         if (post.note) {
                               var post_note = document.createElement("h5");
-                              post_note.innerHTML = post.note;
+                              post_note.innerHTML = linkifyHtml(post.note);
                               left.appendChild(post_note);
                         }
 
