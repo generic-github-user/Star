@@ -26,7 +26,7 @@ firebase.database().ref("posts").once("value").then(
 
                         var post_title = document.createElement("h3");
                         post_title.className = "post-title";
-                        post_title.innerHTML = linkifyHtml(post.title);
+                        post_title.innerHTML = post.title;
 
 
                         post_title_link.appendChild(post_title);
