@@ -54,7 +54,7 @@ const post_created_formatted = function (post) {
 // Get number of ratings for a specific post, formatted as a string - "x votes"
 const post_ratings_formatted = function (post) {
       // Check if post has "num_ratings" property
-      if (post.num_ratings) {
+      if (post.num_ratings != undefined) {
             // If post has exactly 1 rating, use singular form (1 vote)
             if (post.num_ratings == 1) {
                   return post.num_ratings + " vote";
