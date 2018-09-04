@@ -70,6 +70,15 @@ const post_ratings_formatted = function (post) {
       }
 }
 
+const post_note_formatted = function (post) {
+      if (post.note) {
+            return linkifyHtml(post.note);
+      }
+      else {
+            return "";
+      }
+}
+
 const logout = function () {
       firebase.auth().signOut();
       // window.location.reload();

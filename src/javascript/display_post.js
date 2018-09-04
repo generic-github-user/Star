@@ -1,15 +1,15 @@
 // display_post.js
 // Functions for displaying a single post on the individual post page
 
-console.log("Loading post . . .");
+console.log("Loading post...");
 
 // Get post ID from URL
-console.log("Getting post id . . .");
+console.log("Getting post id...");
 var post_info;
 var post_id = getQueryVariable("id");
 
 // Get post information from Firebase Realtime Database using ID
-console.log("Getting post data from database . . .");
+console.log("Getting post data from database...");
 firebase.database().ref("posts/" + post_id).once("value").then(
       (post) => {
             // Get value from post object
@@ -21,16 +21,17 @@ firebase.database().ref("posts/" + post_id).once("value").then(
             const content = document.querySelector("#post");
             content.setAttribute("id", "post-" + post_id);
             // Fill in HTML content of post
-            console.log("Displaying post content . . .");
+            console.log("Displaying post content...");
+            console.log(post);
             content.innerHTML = "\
                   <h1>" + linkifyHtml(post_info.title) + "</h1>\
-                  <h2>" + linkifyHtml(post_info.note) + "</h2>\
+                  <h3>" + post_note_formatted(post_info) + "</h3>\
                   <h3>" + post_created_formatted(post_info) + "</h3>\
                   <h3>" + post_ratings_formatted(post_info) + "</h3>\
             ";
 
             // Add post rating buttons to page
-            console.log("Adding post rating buttons . . .");
+            console.log("Adding post rating buttons...");
             content.appendChild(generate_rating_buttons(post_id));
             // Update buttons to represent current post rating state
             update_post_ratings();

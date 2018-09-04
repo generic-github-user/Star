@@ -26,10 +26,10 @@ header {
 header:hover {
 
 }
-
+*/
 button {
       user-select: none;
-} */
+}
 
 #new-post-panel {
       position: fixed;
@@ -100,28 +100,28 @@ button {
 
 .post {
       width: 100%;
-      height: 125px;
+      display: inline-block;
 
       padding: 10px;
       margin: 1% 0%;
 
-      background-color: #24B73D;
-      box-shadow: 2px 2px 4px #555;
+      background-color: #EEE;
+      box-shadow: 2px 2px 4px #888;
       border-radius: 2px;
 
       transition: border-radius 1s ease, background-color 1.5s ease;
 }
 .post:hover {
-      background-color: #0AA825;
-      border-radius: 5px;
+      background-color: #FFF;
 
-      transition: border-radius 1s ease, background-color 1.5s ease;
+      transition: all 1.5s ease;
 }
 .post * {
       margin: 0px !important;
 }
 
 .post-title {
+      color: #444;
       display: inline-block;
 }
 
@@ -136,12 +136,17 @@ button {
       float: right;
 }
 
+.post-rating-button-container {
+      height: 100%;
+}
+
 .post-rating-button {
       width: calc(calc(100% - 10%) / 5);
-      height: 40px !important;
+      height: 50% !important;
 
-      margin: 20px 1% !important;
-      transition: border-radius 0.5s ease;
+      top: 25%;
+      margin: 0% 1% !important;
+      transition: all 1s ease;
 }
 
 .mdl-dialog {

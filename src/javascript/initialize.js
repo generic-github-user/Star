@@ -1,10 +1,10 @@
 // initialize.js
 // Initialize Firebase app for use with Firebase SDK and API functions, primarily data storage in the Realtime Database
 
-console.log("Initializing Firebase . . .");
+console.log("Initializing Firebase...");
 
 // Create config object containing necessary information for app initialization, including API key and project ID
-console.log("Generating config information . . .");
+console.log("Generating config information...");
 var config = {
       "apiKey": "AIzaSyBxupWBF6M4dVv15fZ1Oxf_EDi4FJ5iAzQ",
       "authDomain": "star-5c536.firebaseapp.com",

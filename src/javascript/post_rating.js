@@ -16,6 +16,7 @@ var colors = [
 
 const generate_rating_buttons = function (post_id) {
       var buttons = document.createElement("div");
+      buttons.className = "post-rating-button-container";
 
       for (var i = 0; i < 5; i ++) {
             button = document.createElement("button");
