@@ -1,0 +1,12 @@
+.post-rating-button-container {
+      height: 100%;
+}
+
+.post-rating-button {
+      width: calc(calc(100% - 10%) / 5);
+      height: 50% !important;
+
+      top: 25%;
+      margin: 0% 1% !important;
+      transition: all 1s ease;
+}

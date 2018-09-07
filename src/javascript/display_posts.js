@@ -52,7 +52,7 @@ firebase.database().ref("posts").once("value").then(
 
                         post_main.appendChild(left);
                         post_main.appendChild(right);
-                        post_main.appendChild(show_share_post(post.title, key, "list"));
+                        post_main.appendChild(show_share_post(post.title, key));
                         posts.appendChild(post_main);
                   }
             );

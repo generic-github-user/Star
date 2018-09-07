@@ -75,7 +75,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                   }
             );
 
-            content.appendChild(show_share_post(post_info.title, post_id, "single"));
+            content.appendChild(show_share_post(post_info.title, post_id));
             componentHandler.upgradeDom();
 
             // Log information about post
