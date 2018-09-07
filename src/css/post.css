@@ -1,3 +1,10 @@
 .post-sharing-icon {
       opacity: 1;
 }
+
+#delete-post-button {
+      position: absolute;
+
+      top: 50px;
+      right: 50px;
+}

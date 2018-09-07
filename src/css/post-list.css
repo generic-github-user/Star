@@ -1,0 +1,40 @@
+.post {
+      width: 90%;
+      display: inline-block;
+      position: relative;
+
+      padding: 10px;
+      margin: 1% 0%;
+
+      background-color: #EEE;
+      box-shadow: 1px 1px 4px 1px #888;
+      border-radius: 2px;
+
+      transition: border-radius 1s ease, background-color 1.5s ease;
+}
+.post-sharing-icon {
+      position: absolute !important;
+      top: 15px;
+      right: 15px;
+
+      opacity: 0;
+      transition: opacity 0.5s ease !important;
+}
+.post:hover .post-sharing-icon {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+}
+
+.post:hover {
+      background-color: #FFF;
+
+      transition: all 1.5s ease;
+}
+.post * {
+      margin: 0px !important;
+}
+
+.post-title {
+      color: #444;
+      display: inline-block;
+}
