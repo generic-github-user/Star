@@ -69,23 +69,25 @@ const update_post_ratings = function () {
                                                 var post = posts[key];
                                                 // Listen for changes in current user's rating of post
                                                 database.ref("posts/" + key + "/ratings/" + user.uid).on("value", function (rating) {
-                                                      var post_element = document.querySelector("#post-" + key);
-                                                      if (post_element) {
-                                                            document.querySelector("#post-" + key)
-                                                            .querySelectorAll(".post-rating-button")
-                                                            .forEach(
-                                                                  button => {
-                                                                        button.style.borderRadius = "";
-                                                                        button.style.filter = "brightness(0.9)";
-                                                                  }
-                                                            );
+                                                      if (rating.val()) {
+                                                            var post_element = document.querySelector("#post-" + key);
+                                                            if (post_element) {
+                                                                  document.querySelector("#post-" + key)
+                                                                  .querySelectorAll(".post-rating-button")
+                                                                  .forEach(
+                                                                        button => {
+                                                                              button.style.borderRadius = "";
+                                                                              button.style.filter = "brightness(0.75)";
+                                                                        }
+                                                                  );
 
-                                                            if (rating.val()) {
-                                                                  // Now *that's* some function nesting
-                                                                  var button = document.querySelector("#post-" + key)
-                                                                  .querySelector("#button-" + rating.val().rating);
-                                                                  button.style.borderRadius = "100px";
-                                                                  button.style.filter = "brightness(1)";
+                                                                  if (rating.val()) {
+                                                                        // Now *that's* some function nesting
+                                                                        var button = document.querySelector("#post-" + key)
+                                                                        .querySelector("#button-" + rating.val().rating);
+                                                                        button.style.borderRadius = "100px";
+                                                                        button.style.filter = "brightness(1)";
+                                                                  }
                                                             }
                                                       }
                                                 });
