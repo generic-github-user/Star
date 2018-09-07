@@ -26,7 +26,7 @@ const generate_rating_buttons = function (post_id) {
                    + ((colors[1].green * factor) + (colors[0].green * (1 - factor))) + ", "
                    + ((colors[1].blue * factor) + (colors[0].blue * (1 - factor))) + ", "
                   + "1)";
-            button.style = "background-color: " + color + " !important; filter: brightness(1"
+            button.style = "background-color: " + color + " !important;"
             button.className = "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored post-rating-button";
             button.id = "button-" + (i * 25);
             // addEventListener cannot be used

@@ -9,4 +9,6 @@
       top: 25%;
       margin: 0% 1% !important;
       transition: all 1s ease;
+
+      filter: brightness(1);
 }
