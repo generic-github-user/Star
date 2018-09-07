@@ -34,7 +34,7 @@ const share_post = function (post_title, post_id) {
 
 const show_share_post = function (post_title, post_id, type) {
       var share_post_icon = document.createElement("button");
-      share_post_icon.className = "mdl-button mdl-js-button mdl-button--icon mdl-button--colored post-sharing-icon";
+      share_post_icon.className = "mdl-button mdl-js-button mdl-button--icon mdl-button--colored";
       share_post_icon.setAttribute("onclick", "share_post('" + post_title + "', '" + post_id + "')");
       share_post_icon.innerHTML += '<i class="material-icons">share</i>';
 
@@ -43,15 +43,16 @@ const show_share_post = function (post_title, post_id, type) {
       share_post_icon_tooltip.innerHTML = 'Share "' + post_title + '"';
 
       if (type == "single") {
-            share_post_icon.id = "share";
-            share_post_icon_tooltip.setAttribute("data-mdl-for", "share");
+            var id = "share";
       }
       else if (type == "list") {
-            share_post_icon.id = "share-" + post_id;
-            share_post_icon_tooltip.setAttribute("data-mdl-for", "share-" + post_id);
+            var id = "share-" + post_id;
       }
+      share_post_icon.id = id;
+      share_post_icon_tooltip.setAttribute("data-mdl-for", id);
 
       var share_post_container = document.createElement("div");
+      share_post_container.className = "post-sharing-icon";
       share_post_container.appendChild(share_post_icon);
       share_post_container.appendChild(share_post_icon_tooltip);
 

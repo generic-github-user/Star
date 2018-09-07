@@ -10,5 +10,11 @@
 }
 
 .post-rating-button {
-      height: 100px !important;
+      height: 50px !important;
+}
+
+.post-sharing-icon {
+      position: absolute !important;
+      top: 100px;
+      right: 50px;
 }
