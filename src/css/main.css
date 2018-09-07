@@ -99,18 +99,35 @@ button {
 }
 
 .post {
-      width: 100%;
+      width: 90%;
       display: inline-block;
+      position: relative;
 
       padding: 10px;
       margin: 1% 0%;
 
       background-color: #EEE;
-      box-shadow: 2px 2px 4px #888;
+      box-shadow: 1px 1px 4px 1px #888;
       border-radius: 2px;
 
       transition: border-radius 1s ease, background-color 1.5s ease;
 }
+.post-sharing-icon {
+      position: absolute !important;
+      top: 15px;
+      right: 15px;
+
+      opacity: 0;
+      transition: opacity 0.5s ease !important;
+}
+.post:hover .post-sharing-icon {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+}
+/* .share-tooltip {
+      left: -100px !important;
+} */
+
 .post:hover {
       background-color: #FFF;
 
@@ -126,14 +143,15 @@ button {
 }
 
 .left {
-      width: 50%;
+      width: 35%;
       height: 100px;
       float: left;
 }
 .right {
-      width: 50%;
+      width: 55%;
       height: 100px;
-      float: right;
+      margin-left: 5% !important;
+      float: left;
 }
 
 .post-rating-button-container {
@@ -150,7 +168,7 @@ button {
 }
 
 .mdl-dialog {
-      width: 50%;
+      width: 50% !important;
 }
 .mdl-dialog__title {
       font-size: 200%;
@@ -158,6 +176,10 @@ button {
 
 .mdl-spinner {
       margin: 40vh 48vw;
+}
+
+.share-post-link-field {
+      width: 100% !important;
 }
 
 /* .mdl-dialog__actions > button {

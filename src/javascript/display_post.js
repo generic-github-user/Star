@@ -59,7 +59,6 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                                     delete_post_dialog.showModal();
                               }
 
-
                               content.innerHTML += '\
                                     <button id="delete-post-button" class="mdl-button mdl-js-button mdl-button--icon warning" onclick="window.display_delete_post_dialog(post_info)">\
                                           <i class="material-icons">delete</i>\
@@ -73,6 +72,9 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                         }
                   }
             );
+
+            content.appendChild(show_share_post(post_info.title, post_id, "single"));
+            componentHandler.upgradeDom();
 
             // Log information about post
             console.log("Loaded post " + post_id);

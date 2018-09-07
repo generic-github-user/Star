@@ -8,6 +8,8 @@ firebase.database().ref("posts").once("value").then(
             var posts = document.querySelector("#post-container");
             posts.innerHTML = "";
 
+            var style = document.createElement("style");
+
             Object.keys(post_data).forEach(
                   (key) => {
                         var post = post_data[key];
@@ -50,10 +52,13 @@ firebase.database().ref("posts").once("value").then(
 
                         post_main.appendChild(left);
                         post_main.appendChild(right);
+                        post_main.appendChild(show_share_post(post.title, key, "list"));
                         posts.appendChild(post_main);
                   }
             );
 
+            document.head.appendChild(style);
             update_post_ratings();
+            componentHandler.upgradeDom();
       }
 );
