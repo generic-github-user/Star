@@ -74,14 +74,18 @@ const update_post_ratings = function () {
                                                             document.querySelector("#post-" + key)
                                                             .querySelectorAll(".post-rating-button")
                                                             .forEach(
-                                                                  button => button.style.borderRadius = ""
+                                                                  button => {
+                                                                        button.style.borderRadius = "";
+                                                                        button.style.filter = "brightness(0.9)";
+                                                                  }
                                                             );
 
                                                             if (rating.val()) {
                                                                   // Now *that's* some function nesting
-                                                                  document.querySelector("#post-" + key)
-                                                                  .querySelector("#button-" + rating.val().rating)
-                                                                  .style.borderRadius = "100px";
+                                                                  var button = document.querySelector("#post-" + key)
+                                                                  .querySelector("#button-" + rating.val().rating);
+                                                                  button.style.borderRadius = "100px";
+                                                                  button.style.filter = "brightness(1)";
                                                             }
                                                       }
                                                 });
