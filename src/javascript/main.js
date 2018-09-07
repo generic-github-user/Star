@@ -83,3 +83,23 @@ const logout = function () {
       firebase.auth().signOut();
       // window.location.reload();
 }
+
+firebase.auth().onAuthStateChanged(
+      function (user) {
+            if (!user) {
+                  var new_post_button = document.querySelector("#new-post-button");
+                  if (new_post_button) {
+                        new_post_button.className = "hidden";
+                  }
+
+                  var logout = document.querySelectorAll(".logout");
+                  if (logout) {
+                        logout.forEach(
+                              (element) => {
+                                    element.className = "hidden";
+                              }
+                        );
+                  }
+            }
+      }
+);

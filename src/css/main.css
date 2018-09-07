@@ -102,6 +102,10 @@ button {
       display: inline-block;
 }
 
+.hidden {
+      display: none;
+}
+
 .left {
       width: 35%;
       height: 100px;

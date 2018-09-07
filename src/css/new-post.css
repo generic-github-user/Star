@@ -19,11 +19,6 @@
       transition: opacity 1s ease, height 1s ease, visibility 0s ease 1s;
 }
 
-.post-title {
-      color: #444;
-      display: inline-block;
-}
-
 
 #new-post-panel > * {
       margin: 0;
@@ -47,6 +42,3 @@
       right: 10px;
 
 }
-
-
-
