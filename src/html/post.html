@@ -22,14 +22,8 @@
       <!-- Content of page -->
       <body>
             <!-- Header section -->
-            <header>
-
-            </header>
-
-            <!-- Div containing post information (filled in by display_post.js) -->
-            <div id="post">
-                  <div class="mdl-spinner mdl-js-spinner is-active"></div>
-            </div>
+            <div id="header"></div>
+            <div id="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
 
             <dialog class="mdl-dialog" id="delete-post-dialog">
                   <h4 class="mdl-dialog__title">Delete Post?</h4>
@@ -49,14 +43,15 @@
                   <button class="mdl-snackbar__action" type="button"></button>
             </div>
 
+            <script type="text/javascript" src="../javascript/jquery-3.3.1.js"></script>
             <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
             <script type="text/javascript" src="../javascript/initialize.js"></script>
             <script type="text/javascript" src="../javascript/main.js"></script>
             <script type="text/javascript" src="../javascript/utilities.js"></script>
-            <script type="text/javascript" src="../javascript/display-post.js"></script>
             <script type="text/javascript" src="../javascript/post-rating.js"></script>
             <script type="text/javascript" src="../javascript/post-sharing.js"></script>
             <script type="text/javascript" src="../javascript/linkify.js"></script>
             <script type="text/javascript" src="../javascript/linkify-html.js"></script>
+            <script type="text/javascript" src="../javascript/display-post.js"></script>
       </body>
 </html>

@@ -17,9 +17,10 @@ firebase.database().ref("posts/" + post_id).once("value").then(
             // Update page title to match post title
             document.title = post_info.title;
 
-            // Get post container HTML element (div#post)
-            const content = document.querySelector("#post");
+            // Get post container HTML element (div#post-container)
+            var content = document.querySelector("#post-container");
             content.setAttribute("id", "post-" + post_id);
+
             // Fill in HTML content of post
             console.log("Displaying post content...");
             console.log(post);
@@ -76,6 +77,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
             );
 
             content.appendChild(show_share_post(post_info.title, post_id, "single"));
+            $("#loading").remove();
             componentHandler.upgradeDom();
 
             // Log information about post
