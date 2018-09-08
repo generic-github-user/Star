@@ -8,7 +8,7 @@ var dialog = $("dialog");
 //       dialogPolyfill.registerDialog(dialog);
 // }
 // Add event listener to dialog box close button
-dialog.find(".close").on("click", function() {
+dialog.find(".close").click(function() {
       // Close dialog box
       dialog[0].close();
 });

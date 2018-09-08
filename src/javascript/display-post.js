@@ -47,10 +47,10 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                                     // if (! dialog.showModal) {
                                     //       dialogPolyfill.registerDialog(dialog);
                                     // }
-                                    delete_post_dialog.find(".close").on("click", function() {
+                                    delete_post_dialog.find(".close").click(function() {
                                           delete_post_dialog[0].close();
                                     });
-                                    delete_post_dialog.find(".confirm").on("click", function() {
+                                    delete_post_dialog.find(".confirm").click(function() {
                                           firebase.database().ref("posts/" + post_id).remove();
                                           delete_post_dialog[0].close();
                                           window.location.href = "index.html";
