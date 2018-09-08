@@ -39,7 +39,7 @@ const view_post = function (post_id) {
 // Publish a post and store information in database
 const publish_post = function () {
       // Get title from title text box
-      var title = $("#new-post-title-input").attr("value");
+      var title = $("#new-post-title-input").val();
       // Confirm that user has entered a title into the title text field
       if (title || title != "") {
             // Get note text from note field
@@ -47,13 +47,14 @@ const publish_post = function () {
 
             var user_id = firebase.auth().currentUser.uid;
             var key = firebase.database().ref().child('posts').push().key;
-            database.ref("posts/" + key).set({
+            var post_info = {
                   "user_id": user_id,
                   "title": title,
                   "note": note,
                   "num_ratings": 0,
                   "created": Date.now()
-            });
+            };
+            database.ref("posts/" + key).set(post_info);
             $("#new-post-panel").toggleClass("visible");
 
             var snackbar_container = $("#new-post-snackbar");
@@ -71,6 +72,6 @@ const publish_post = function () {
       //
       else {
             // Display dialog box
-            dialog.showModal();
+            dialog[0].showModal();
       }
 }

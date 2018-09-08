@@ -83,7 +83,7 @@ const post_note_formatted = function (post) {
 
 const logout = function () {
       firebase.auth().signOut();
-      // window.location.reload();
+      window.location.reload();
 }
 
 firebase.auth().onAuthStateChanged(
