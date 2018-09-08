@@ -41,6 +41,11 @@ header:hover {
 
 }
 */
+
+/* header button {
+      color: #FFF !important;
+} */
+
 button {
       user-select: none;
 }
