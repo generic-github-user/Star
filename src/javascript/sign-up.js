@@ -11,6 +11,12 @@ const create_user = function () {
       else if (!password || password == "") {
             error_dialog("Error", "You must enter an password to create an account.");
       }
+      else if (password.length < 8) {
+            error_dialog("Error", "Password must be at least 8 characters long.");
+      }
+      else if (password.length > 64) {
+            error_dialog("Error", "Password must be between 8 and 64 characters long.");
+      }
       else {
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
                   console.log(error.code);
