@@ -70,7 +70,7 @@ const update_post_ratings = function () {
                                                 // Listen for changes in current user's rating of post
                                                 database.ref("posts/" + key + "/ratings/" + user.uid).on("value", function (rating) {
                                                       if (rating.val()) {
-                                                            var post_element = document.querySelector("#post-" + key);
+                                                            var post_element = $("#post-" + key);
                                                             if (post_element) {
                                                                   var buttons = $("#post-" + key)
                                                                   .find(".post-rating-button")

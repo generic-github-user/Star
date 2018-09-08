@@ -61,14 +61,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                                           delete_post_dialog[0].showModal();
                                     }
 
-                                    post_container[0].innerHTML += '\
-                                          <button id="delete-post-button" class="mdl-button mdl-js-button mdl-button--icon warning" onclick="window.display_delete_post_dialog(post_info)">\
-                                                <i class="material-icons">delete</i>\
-                                          </button>\
-                                          <div class="mdl-tooltip" data-mdl-for="delete-post-button">\
-                                                Delete post\
-                                          </div>\
-                                    ';
+                                    post_container.append($("<div></div>").load("delete-post.html"));
 
                                     componentHandler.upgradeDom();
                               }
