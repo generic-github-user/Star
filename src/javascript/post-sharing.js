@@ -1,22 +1,4 @@
-$(function () {
-      $("body").append('\
-            <dialog class="mdl-dialog" id="share-post-dialog">\
-                  <h4 class="mdl-dialog__title title">Share Post</h4>\
-                  <div class="mdl-dialog__content">\
-                        <p>\
-                              Copy the link below.\
-                        </p>\
-                        <div class="mdl-textfield mdl-js-textfield share-post-link-field">\
-                              <input class="mdl-textfield__input" type="text" id="sample1" spellcheck="false">\
-                              <label class="mdl-textfield__label" for="sample1"></label>\
-                        </div>\
-                  </div>\
-                  <div class="mdl-dialog__actions">\
-                        <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect\ close">Done</button>\
-                  </div>\
-            </dialog>\
-      ');
-})
+$(() => $("body").append($("<div></div>").load("share-post.html")));
 
 const share_post = function (post_title, post_id) {
       var share_post_dialog = $("#share-post-dialog");
