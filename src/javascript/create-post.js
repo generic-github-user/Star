@@ -2,15 +2,15 @@
 // Functions for creating a new Star post
 
 // Get dialog element and store it in a variable
-var dialog = document.querySelector("dialog");
+var dialog = $("dialog");
 // Display dialog polyfill for older browsers that do not support the experimental HTML <dialog> element
 // if (! dialog.showModal) {
 //       dialogPolyfill.registerDialog(dialog);
 // }
 // Add event listener to dialog box close button
-dialog.querySelector(".close").addEventListener("click", function() {
+dialog.find(".close").on("click", function() {
       // Close dialog box
-      dialog.close();
+      dialog[0].close();
 });
 
 // Open new post window to create a new post
@@ -39,11 +39,11 @@ const view_post = function (post_id) {
 // Publish a post and store information in database
 const publish_post = function () {
       // Get title from title text box
-      var title = document.querySelector("#new-post-title-input").value;
+      var title = $("#new-post-title-input").attr("value");
       // Confirm that user has entered a title into the title text field
       if (title || title != "") {
             // Get note text from note field
-            var note = document.querySelector("#new-post-note-input").value;
+            var note = $("#new-post-note-input").attr("value");
 
             var user_id = firebase.auth().currentUser.uid;
             var key = firebase.database().ref().child('posts').push().key;
@@ -54,9 +54,9 @@ const publish_post = function () {
                   "num_ratings": 0,
                   "created": Date.now()
             });
-            document.querySelector("#new-post-panel").className = "";
+            $("#new-post-panel").toggleClass("visible");
 
-            var snackbar_container = document.querySelector("#new-post-snackbar");
+            var snackbar_container = $("#new-post-snackbar");
             var snackbar_config = {
                   "message": "Post created.",
                   // Message lasts for 5 seconds (5,000 milliseconds)
@@ -66,7 +66,7 @@ const publish_post = function () {
                   "actionText": "View"
             };
             // Display snackbar notification with config information object
-            snackbar_container.MaterialSnackbar.showSnackbar(snackbar_config);
+            snackbar_container[0].MaterialSnackbar.showSnackbar(snackbar_config);
       }
       //
       else {

@@ -8,56 +8,53 @@ firebase.database().ref("posts").once("value").then(
             var posts = $("#post-container");
             posts.empty();
 
-            var style = document.createElement("style");
-
             Object.keys(post_data).forEach(
                   (key) => {
                         var post = post_data[key];
 
-                        var post_main = document.createElement("div");
-                        post_main.className = "post";
-                        post_main.id = "post-" + key;
-                        var left = document.createElement("div");
-                        left.className = "left";
-                        var right = document.createElement("div");
-                        right.className = "right";
+                        var post_main = $("<div></div>");
+                        post_main.addClass("post");
+                        post_main.attr("id", "post-" + key);
+                        var left = $("<div></div>");
+                        left.addClass("left");
+                        var right = $("<div></div>");
+                        right.addClass("right");
 
-                        var post_title_link = document.createElement("a");
+                        var post_title_link = $("<a></a>");
                         var destination_url = "post.html?id=" + key;
-                        post_title_link.setAttribute("href", destination_url)
+                        post_title_link.attr("href", destination_url)
 
-                        var post_title = document.createElement("h3");
-                        post_title.className = "post-title";
-                        post_title.innerHTML = post.title;
+                        var post_title = $("<h3></h3>");
+                        post_title.addClass("post-title");
+                        post_title.text(post.title);
 
 
-                        post_title_link.appendChild(post_title);
-                        left.appendChild(post_title_link);
+                        post_title_link.append(post_title);
+                        left.append(post_title_link);
 
                         if (post.note) {
-                              var post_note = document.createElement("h5");
-                              post_note.innerHTML = linkifyHtml(post.note);
-                              left.appendChild(post_note);
+                              var post_note = $("<h5></h5>");
+                              post_note.html(linkifyHtml(post.note));
+                              left.append(post_note);
                         }
 
-                        var post_created = document.createElement("p");
-                        post_created.innerHTML = post_created_formatted(post);
-                        left.appendChild(post_created);
+                        var post_created = $("<p></p>");
+                        post_created.text(post_created_formatted(post));
+                        left.append(post_created);
 
-                        var post_ratings = document.createElement("p");
-                        post_ratings.innerHTML = post_ratings_formatted(post);
-                        left.appendChild(post_ratings);
+                        var post_ratings = $("<p></p>");
+                        post_ratings.text(post_ratings_formatted(post));
+                        left.append(post_ratings);
 
-                        right.appendChild(generate_rating_buttons(key));
+                        right.append(generate_rating_buttons(key));
 
-                        post_main.appendChild(left);
-                        post_main.appendChild(right);
-                        post_main.appendChild(show_share_post(post.title, key, "list"));
+                        post_main.append(left);
+                        post_main.append(right);
+                        post_main.append(show_share_post(post.title, key, "list"));
                         posts.append(post_main);
                   }
             );
 
-            document.head.appendChild(style);
             update_post_ratings();
             componentHandler.upgradeDom();
       }

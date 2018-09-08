@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-      document.body.innerHTML += '\
+$(function () {
+      $("body").append('\
             <dialog class="mdl-dialog" id="share-post-dialog">\
                   <h4 class="mdl-dialog__title title">Share Post</h4>\
                   <div class="mdl-dialog__content">\
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect\ close">Done</button>\
                   </div>\
             </dialog>\
-      ';
+      ');
 })
 
 const share_post = function (post_title, post_id) {
@@ -33,14 +33,14 @@ const share_post = function (post_title, post_id) {
 }
 
 const show_share_post = function (post_title, post_id, type) {
-      var share_post_icon = document.createElement("button");
-      share_post_icon.className = "mdl-button mdl-js-button mdl-button--icon mdl-button--colored";
-      share_post_icon.setAttribute("onclick", "share_post('" + post_title + "', '" + post_id + "')");
-      share_post_icon.innerHTML += '<i class="material-icons">share</i>';
+      var share_post_icon = $("<button></button>");
+      share_post_icon.addClass("mdl-button mdl-js-button mdl-button--icon mdl-button--colored");
+      share_post_icon.attr("onclick", "share_post('" + post_title + "', '" + post_id + "')");
+      share_post_icon.append('<i class="material-icons">share</i>');
 
-      var share_post_icon_tooltip = document.createElement("div");
-      share_post_icon_tooltip.className = "mdl-tooltip share-tooltip";
-      share_post_icon_tooltip.innerHTML = 'Share "' + post_title + '"';
+      var share_post_icon_tooltip = $("<div></div>");
+      share_post_icon_tooltip.addClass("mdl-tooltip share-tooltip");
+      share_post_icon_tooltip.text('Share "' + post_title + '"');
 
       if (type == "single") {
             var id = "share";
@@ -48,13 +48,13 @@ const show_share_post = function (post_title, post_id, type) {
       else if (type == "list") {
             var id = "share-" + post_id;
       }
-      share_post_icon.id = id;
-      share_post_icon_tooltip.setAttribute("data-mdl-for", id);
+      share_post_icon.attr("id", id);
+      share_post_icon_tooltip.attr("data-mdl-for", id);
 
-      var share_post_container = document.createElement("div");
-      share_post_container.className = "post-sharing-icon";
-      share_post_container.appendChild(share_post_icon);
-      share_post_container.appendChild(share_post_icon_tooltip);
+      var share_post_container = $("<div></div>");
+      share_post_container.addClass("post-sharing-icon");
+      share_post_container.append(share_post_icon);
+      share_post_container.append(share_post_icon_tooltip);
 
       return share_post_container;
 }

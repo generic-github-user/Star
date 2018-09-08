@@ -89,18 +89,14 @@ const logout = function () {
 firebase.auth().onAuthStateChanged(
       function (user) {
             if (!user) {
-                  var new_post_button = document.querySelector("#new-post-button");
+                  var new_post_button = $("#new-post-button");
                   if (new_post_button) {
-                        new_post_button.className = "hidden";
+                        new_post_button.addClass("hidden");
                   }
 
-                  var logout = document.querySelectorAll(".logout");
+                  var logout = $(".logout");
                   if (logout) {
-                        logout.forEach(
-                              (element) => {
-                                    element.className = "hidden";
-                              }
-                        );
+                        logout.addClass("hidden");
                   }
             }
       }
