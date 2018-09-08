@@ -63,7 +63,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                                           delete_post_dialog[0].showModal();
                                     }
 
-                                    post_container.append($("<div></div>").load("includes/delete-post.html"));
+                                    post_container.append($("<div></div>").load("includes/buttons/delete-post.html"));
 
                                     componentHandler.upgradeDom();
                               }
