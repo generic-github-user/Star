@@ -38,13 +38,16 @@ const view_post = function (post_id) {
 
 // Publish a post and store information in database
 const publish_post = function () {
+      console.log("Getting new post information...");
       // Get title from title text box
+      console.log("Getting title...");
       var title = $("#new-post-title-input").val();
       // Confirm that user has entered a title into the title text field
       if (title || title != "") {
             // Get note text from note field
             var note = $("#new-post-note-input").attr("value");
 
+            console.log("Getting user ID from Firebase...");
             var user_id = firebase.auth().currentUser.uid;
             var key = firebase.database().ref().child('posts').push().key;
             var post_info = {
@@ -54,9 +57,11 @@ const publish_post = function () {
                   "num_ratings": 0,
                   "created": Date.now()
             };
+            console.log("Storing post information in database...");
             database.ref("posts/" + key).set(post_info);
             $("#new-post-panel").toggleClass("visible");
 
+            console.log("Displaying new post created snackbar notification...");
             var snackbar_container = $("#new-post-snackbar");
             var snackbar_config = {
                   "message": "Post created.",
@@ -71,6 +76,10 @@ const publish_post = function () {
       }
       //
       else {
+            console.log(
+                  "New post title is blank.",
+                  "Displaying error dialog box..."
+            );
             // Display dialog box
             dialog[0].showModal();
       }
