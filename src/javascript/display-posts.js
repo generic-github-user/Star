@@ -5,8 +5,8 @@ firebase.database().ref("posts").once("value").then(
       function (data) {
             var post_data = data.val();
 
-            var posts = document.querySelector("#post-container");
-            posts.innerHTML = "";
+            var posts = $("#post-container");
+            posts.empty();
 
             var style = document.createElement("style");
 
@@ -53,7 +53,7 @@ firebase.database().ref("posts").once("value").then(
                         post_main.appendChild(left);
                         post_main.appendChild(right);
                         post_main.appendChild(show_share_post(post.title, key, "list"));
-                        posts.appendChild(post_main);
+                        posts.append(post_main);
                   }
             );
 

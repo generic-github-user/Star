@@ -19,16 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 const share_post = function (post_title, post_id) {
-      var share_post_dialog = document.querySelector("#share-post-dialog");
+      var share_post_dialog = $("#share-post-dialog");
       // if (! dialog.showModal) {
       //       dialogPolyfill.registerDialog(dialog);
       // }
-      share_post_dialog.querySelector(".title").innerHTML = "Share Post<br />" + post_title;
-      share_post_dialog.querySelector("input").value = "https://example.com/post.html?id=" + post_id;
+      share_post_dialog.find(".title").html("Share Post<br />" + post_title);
+      share_post_dialog.find("input").attr("value", "https://example.com/post.html?id=" + post_id);
 
-      share_post_dialog.showModal();
-      share_post_dialog.querySelector(".close").addEventListener("click", function() {
-            share_post_dialog.close();
+      share_post_dialog[0].showModal();
+      share_post_dialog.find(".close").click(function() {
+            share_post_dialog[0].close();
       });
 }
 

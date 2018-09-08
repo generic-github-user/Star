@@ -16,19 +16,19 @@ dialog.querySelector(".close").addEventListener("click", function() {
 // Open new post window to create a new post
 const new_post = function () {
       // Reset title text field
-      var title = document.querySelector("#new-post-title-input");
+      var title = $("#new-post-title-input");
       // Clear contents of text field
-      title.value = "";
+      title.attr("value", "");
       // Remove the .is-dirty MDL class that marks user input
-      title.parentNode.classList.remove("is-dirty");
+      title.removeClass("is-dirty");
 
       // Reset note text field
-      var note = document.querySelector("#new-post-note-input");
-      note.value = "";
-      note.parentNode.classList.remove("is-dirty");
+      var note = $("#new-post-note-input");
+      note.attr("value", "");
+      note.removeClass("is-dirty");
 
       // Display new post settings panel
-      document.querySelector("#new-post-panel").className = "visible";
+      $("#new-post-panel").toggleClass("visible");
 }
 
 // View post just created by the user (not currently supported)

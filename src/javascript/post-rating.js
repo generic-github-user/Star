@@ -72,21 +72,17 @@ const update_post_ratings = function () {
                                                       if (rating.val()) {
                                                             var post_element = document.querySelector("#post-" + key);
                                                             if (post_element) {
-                                                                  document.querySelector("#post-" + key)
-                                                                  .querySelectorAll(".post-rating-button")
-                                                                  .forEach(
-                                                                        button => {
-                                                                              button.style.borderRadius = "";
-                                                                              button.style.filter = "brightness(0.75)";
-                                                                        }
-                                                                  );
+                                                                  var buttons = $("#post-" + key)
+                                                                  .find(".post-rating-button")
+                                                                  buttons.css("border-radius", "")
+                                                                  buttons.css("filter", "brightness(0.75)")
 
                                                                   if (rating.val()) {
                                                                         // Now *that's* some function nesting
-                                                                        var button = document.querySelector("#post-" + key)
-                                                                        .querySelector("#button-" + rating.val().rating);
-                                                                        button.style.borderRadius = "100px";
-                                                                        button.style.filter = "brightness(1)";
+                                                                        var button = $("#post-" + key)
+                                                                        .find("#button-" + rating.val().rating);
+                                                                        button.css("border-radius", "100px");
+                                                                        button.css("filter", "brightness(1)");
                                                                   }
                                                             }
                                                       }
