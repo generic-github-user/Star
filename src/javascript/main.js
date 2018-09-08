@@ -1,7 +1,7 @@
 // main.js
 // A set of functions and variables that are used on multiple pages, but are not utilites. This includes displaying and formatting posts, and other similar processes.
 
-$(() => $("#header").load("includes/header.html"));
+// $(() => $("#header").load("includes/header.html"));
 
 // Define list of month names to be used in date formatting
 const month_names = [
@@ -88,16 +88,35 @@ const logout = function () {
 
 firebase.auth().onAuthStateChanged(
       function (user) {
-            if (!user) {
+            if (! user) {
+                  var login = $(".login");
+                  if (login) {
+                        login.removeClass("hidden");
+                  }
+            }
+            else {
                   var new_post_button = $("#new-post-button");
                   if (new_post_button) {
-                        new_post_button.addClass("hidden");
+                        new_post_button.removeClass("hidden");
                   }
 
                   var logout = $(".logout");
                   if (logout) {
-                        logout.addClass("hidden");
+                        logout.removeClass("hidden");
                   }
             }
       }
 );
+
+$("body").append($("<div></div>").load("includes/dialogs/error.html"));
+
+const error_dialog = function (title, message) {
+      $("dialog#error h4#title").text(title);
+      $("dialog#error p#message").text(message);
+      $("dialog")[0].showModal();
+      $("dialog#error .close").click(() => $("dialog#error")[0].close());
+}
+
+
+// $($("dialog#error button.close").attr("onclick", '$("dialog#error")[0].close()'));
+// $("dialog").find("#error").find(".close").click(() => $("dialog")[0].close());

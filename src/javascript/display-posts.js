@@ -1,6 +1,8 @@
 // display_posts.js
 // Display listing of posts on Star home page
 
+$(() => $("#header").load("includes/header.html"));
+
 firebase.database().ref("posts").once("value").then(
       function (data) {
             var post_data = data.val();

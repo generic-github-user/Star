@@ -85,6 +85,21 @@ button {
       width: 100% !important;
 }
 
+#firebaseui-auth-container {
+      width: 40% !important;
+      height: 40vh !important;
+      margin: 30vh 30%;
+      position: absolute;
+}
+
+#sign-up-message {
+      margin-left: 25px;
+}
+
+/* .firebaseui-id-page-password-sign-in {
+
+} */
+
 /* .mdl-dialog__actions > button {
       width: 100%;
       height: 50px;

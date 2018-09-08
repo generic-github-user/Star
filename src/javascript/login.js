@@ -1,10 +1,37 @@
 // login.js
 // Handles app sign-in functions for Star login page
 
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// $(() => $("#content").html(
+//       '<h1>Welcome to Star</h1>\
+//       <div id="firebaseui-auth-container"></div>'
+// ));
 
-ui.start('#firebaseui-auth-container', {
-      signInOptions: [
-            firebase.auth.EmailAuthProvider.PROVIDER_ID
-      ]
-});
+// $.getScript("../javascript/main.js")
+//     .then(function() { $("#content").html(
+//       '<h1>Welcome to Star</h1>\
+//       <div id="firebaseui-auth-container"></div>'
+// ) })
+
+firebase.auth().onAuthStateChanged(
+      function (user) {
+            if (! user) {
+                  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+                  ui.start('#firebaseui-auth-container', {
+                        "callbacks": {
+                              "uiShown": function () {
+                                    $(".firebaseui-title").text("Sign In to Star");
+                                    $(".firebaseui-id-page-password-sign-in").append("<p id='sign-up-message'>Don't have an account? <a href='sign-up.html'>Create one here</a></p>");
+                              }
+                        },
+                        "signInSuccessUrl": "index.html",
+                        "signInOptions": [
+                              firebase.auth.EmailAuthProvider.PROVIDER_ID
+                        ]
+                  });
+            }
+            else {
+                  window.location.href = "index.html";
+            }
+      }
+);
