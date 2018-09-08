@@ -1,6 +1,7 @@
 // display_post.js
 // Functions for displaying a single post on the individual post page
 
+$("#header").load("includes/header.html");
 $("body").append($("<div></div>").load("includes/dialogs/delete-post.html"));
 
 console.log("Loading post...");
@@ -35,7 +36,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
 
             // Add post rating buttons to page
             console.log("Adding post rating buttons...");
-            post_container[0].appendChild(generate_rating_buttons(post_id));
+            post_container.append(generate_rating_buttons(post_id));
             // Update buttons to represent current post rating state
             update_post_ratings();
 
