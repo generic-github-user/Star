@@ -46,17 +46,22 @@ const generate_rating_buttons = function (post_id) {
 }
 
 const rate_post = function (post_id, rating) {
-      var user_id = firebase.auth().currentUser.uid;
-      database.ref("posts/" + post_id + "/ratings/" + user_id).set({
-            "rating": rating
-      });
+      if (firebase.auth().currentUser) {
+            var user_id = firebase.auth().currentUser.uid;
+            database.ref("posts/" + post_id + "/ratings/" + user_id).set({
+                  "rating": rating
+            });
+      }
+      else {
+            error_dialog("Not logged in", "You must be logged in to rate a post - <a href='login.html'>log in here.</a><br />If you don't have an account, you can <a href='sign-up.html'>create one here.</a>");
+      }
 }
 
 const update_post_ratings = function () {
       // Wait for current user info to load - if user changes, reload information
       firebase.auth().onAuthStateChanged(
             function (user) {
-                        if (user) {
+                  if (user) {
                         // Get list of all posts
                         database.ref("posts").once(
                               "value",

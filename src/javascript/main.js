@@ -111,9 +111,9 @@ firebase.auth().onAuthStateChanged(
 $("body").append($("<div></div>").load("includes/dialogs/error.html"));
 
 const error_dialog = function (title, message) {
-      $("dialog#error h4#title").text(title);
-      $("dialog#error p#message").text(message);
-      $("dialog")[0].showModal();
+      $("dialog#error h4#title").html(title);
+      $("dialog#error p#message").html(message);
+      $("dialog#error")[0].showModal();
       $("dialog#error .close").click(() => $("dialog#error")[0].close());
 }
 
