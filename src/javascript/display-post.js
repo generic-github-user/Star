@@ -18,22 +18,22 @@ firebase.database().ref("posts/" + post_id).once("value").then(
             document.title = post_info.title;
 
             // Get post container HTML element (div#post-container)
-            var content = document.querySelector("#post-container");
-            content.setAttribute("id", "post-" + post_id);
+            var post_container = $("#post-container");
+            post_container.attr("id", "post-" + post_id);
 
             // Fill in HTML content of post
-            console.log("Displaying post content...");
+            console.log("Displaying post post_container...");
             console.log(post);
-            content.innerHTML = "\
+            post_container.html("\
                   <h1>" + linkifyHtml(post_info.title) + "</h1>\
                   <h3>" + post_note_formatted(post_info) + "</h3>\
                   <h3>" + post_created_formatted(post_info) + "</h3>\
                   <h3>" + post_ratings_formatted(post_info) + "</h3>\
-            ";
+            ");
 
             // Add post rating buttons to page
             console.log("Adding post rating buttons...");
-            content.appendChild(generate_rating_buttons(post_id));
+            post_container[0].appendChild(generate_rating_buttons(post_id));
             // Update buttons to represent current post rating state
             update_post_ratings();
 
@@ -43,25 +43,25 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                         if (user) {
                               post_ownership = user.uid == post_info.user_id;
                               if (post_ownership) {
-                                    var delete_post_dialog = document.querySelector("#delete-post-dialog");
+                                    var delete_post_dialog = $("#delete-post-dialog");
                                     // if (! dialog.showModal) {
                                     //       dialogPolyfill.registerDialog(dialog);
                                     // }
-                                    delete_post_dialog.querySelector(".close").addEventListener("click", function() {
-                                          delete_post_dialog.close();
+                                    delete_post_dialog.find(".close").on("click", function() {
+                                          delete_post_dialog[0].close();
                                     });
-                                    delete_post_dialog.querySelector(".confirm").addEventListener("click", function() {
+                                    delete_post_dialog.find(".confirm").on("click", function() {
                                           firebase.database().ref("posts/" + post_id).remove();
-                                          delete_post_dialog.close();
+                                          delete_post_dialog[0].close();
                                           window.location.href = "index.html";
                                     });
 
                                     window.display_delete_post_dialog = function (post) {
-                                          delete_post_dialog.querySelector(".mdl-dialog__title").innerHTML = "Delete Post - " + post.title;
-                                          delete_post_dialog.showModal();
+                                          delete_post_dialog.find(".mdl-dialog__title").text("Delete Post - " + post.title);
+                                          delete_post_dialog[0].showModal();
                                     }
 
-                                    content.innerHTML += '\
+                                    post_container[0].innerHTML += '\
                                           <button id="delete-post-button" class="mdl-button mdl-js-button mdl-button--icon warning" onclick="window.display_delete_post_dialog(post_info)">\
                                                 <i class="material-icons">delete</i>\
                                           </button>\
@@ -76,7 +76,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                   }
             );
 
-            content.appendChild(show_share_post(post_info.title, post_id, "single"));
+            post_container[0].appendChild(show_share_post(post_info.title, post_id, "single"));
             $("#loading").remove();
             componentHandler.upgradeDom();
 
