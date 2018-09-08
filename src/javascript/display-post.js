@@ -1,6 +1,8 @@
 // display_post.js
 // Functions for displaying a single post on the individual post page
 
+$("body").append($("<div></div>").load("includes/dialogs/delete-post.html"));
+
 console.log("Loading post...");
 
 // Get post ID from URL
