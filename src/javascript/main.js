@@ -1,7 +1,7 @@
 // main.js
 // A set of functions and variables that are used on multiple pages, but are not utilites. This includes displaying and formatting posts, and other similar processes.
 
-$(() => $("#header").load("header.html"));
+$(() => $("#header").load("includes/header.html"));
 
 // Define list of month names to be used in date formatting
 const month_names = [

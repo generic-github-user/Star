@@ -1,4 +1,4 @@
-$(() => $("body").append($("<div></div>").load("share-post.html")));
+$(() => $("body").append($("<div></div>").load("includes/share-post.html")));
 
 const share_post = function (post_title, post_id) {
       var share_post_dialog = $("#share-post-dialog");
