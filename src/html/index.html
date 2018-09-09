@@ -10,25 +10,26 @@
             Star
       </title>
 
-      <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-      <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+      <script src="../javascript/libraries/firebase/firebase-ui.js"></script>
+      <link type="text/css" rel="stylesheet" href="../css/libraries/firebase/firebase-ui.css" />
       <link rel="stylesheet" href=".././css/post-list.css" />
       <link rel="stylesheet" href=".././css/main.css" />
       <link rel="stylesheet" href=".././css/new-post.css" />
       <link rel="stylesheet" href=".././css/post-rating.css" />
 
-      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.green-light_green.min.css" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+      <!-- Material Design Lite -->
+      <link rel="stylesheet" href="../css/libraries/material-design-lite/material-design-lite.css" />
+      <link rel="stylesheet" href="../css/libraries/material-design-lite/material-icons.css" />
+      <script defer src="../javascript/libraries/material-design-lite/material-design-lite.js"></script>
 
-      <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+      <script type="text/javascript" src="../javascript/libraries/firebase/firebase.js"></script>
 </head>
 
 <body>
       <div id="new-post-panel">
             <h3>
-                        New Post
-                  </h3>
+                  New Post
+            </h3>
 
             <!-- New post options -->
             <!-- Post title -->
@@ -50,8 +51,8 @@
             </div>
 
             <button id="publish-post-button" onclick="publish_post();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-                        Publish Post
-                  </button>
+                  Publish Post
+            </button>
 
             <button id="close-panel-button" onclick="this.parentNode.className = '';" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
                         <i class="material-icons">close</i>
