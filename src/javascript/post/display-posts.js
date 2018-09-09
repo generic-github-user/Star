@@ -1,7 +1,11 @@
 // display_posts.js
 // Display listing of posts on Star home page
 
+<<<<<<< HEAD
 $(() => $("#header").load(window.location.origin + "/src/html/includes/header.html"));
+=======
+$(() => $("#header").load("includes/header.html"));
+>>>>>>> parent of 5a8e973... Added pages HTML directory
 
 firebase.database().ref("posts").once("value").then(
       function(data) {

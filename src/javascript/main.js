@@ -1,7 +1,11 @@
 // main.js
 // A set of functions and variables that are used on multiple pages, but are not utilites. This includes displaying and formatting posts, and other similar processes.
 
+<<<<<<< HEAD
 // $(() => $("#header").load(window.location.origin + "/src/html/includes/header.html"));
+=======
+// $(() => $("#header").load("includes/header.html"));
+>>>>>>> parent of 5a8e973... Added pages HTML directory
 
 // Define list of month names to be used in date formatting
 const month_names = [
@@ -107,7 +111,11 @@ firebase.auth().onAuthStateChanged(
       }
 );
 
+<<<<<<< HEAD
 $("body").append($("<div></div>").load(window.location.origin + "/src/html/includes/dialogs/error.html"));
+=======
+$("body").append($("<div></div>").load("includes/dialogs/error.html"));
+>>>>>>> parent of 5a8e973... Added pages HTML directory
 
 // Display dialog polyfill for older browsers that do not support the experimental HTML <dialog> element
 // if (! dialog.showModal) {
