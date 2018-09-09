@@ -42,7 +42,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
 
             var post_ownership;
             firebase.auth().onAuthStateChanged(
-                  function (user) {
+                  function(user) {
                         if (user) {
                               post_ownership = user.uid == post_info.user_id;
                               if (post_ownership) {
@@ -59,7 +59,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                                           window.location.href = "index.html";
                                     });
 
-                                    window.display_delete_post_dialog = function (post) {
+                                    window.display_delete_post_dialog = function(post) {
                                           delete_post_dialog.find(".mdl-dialog__title").text("Delete Post - " + post.title);
                                           delete_post_dialog[0].showModal();
                                     }

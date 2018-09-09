@@ -14,7 +14,7 @@ dialog.find(".close").click(function() {
 });
 
 // Open new post window to create a new post
-const new_post = function () {
+const new_post = function() {
       // Reset title text field
       var title = $("#new-post-title-input");
       // Clear contents of text field
@@ -32,12 +32,12 @@ const new_post = function () {
 }
 
 // View post just created by the user (not currently supported)
-const view_post = function (post_id) {
+const view_post = function(post_id) {
       window.location.href = "post.html?id=" + post_id;
 }
 
 // Publish a post and store information in database
-const publish_post = function () {
+const publish_post = function() {
       console.log("Getting new post information...");
       // Get title from title text box
       console.log("Getting title...");

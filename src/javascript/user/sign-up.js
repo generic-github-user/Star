@@ -1,5 +1,5 @@
 // Create a new user account with a provided e-mail address and password
-const create_user = function () {
+const create_user = function() {
       console.log("Creating new user account...");
       console.log("Getting user information from page...");
       // Get e-mail address and password from text input fields on page
@@ -32,8 +32,7 @@ const create_user = function () {
       else if (password.length > 64) {
             error_dialog("Error", "Password must be between 8 and 64 characters long.");
             console.error("Password is " + password.length + " characters long. Maximum password length is 64 characters.");
-      }
-      else {
+      } else {
             console.log("User information validated. Creating account...");
             // Use Firebase's createUserWithEmailAndPassword function to create a password
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {

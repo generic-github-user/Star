@@ -4,7 +4,7 @@
 $(() => $("#header").load("includes/header.html"));
 
 firebase.database().ref("posts").once("value").then(
-      function (data) {
+      function(data) {
             var post_data = data.val();
 
             var posts = $("#post-container");

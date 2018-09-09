@@ -19,7 +19,7 @@ const month_names = [
 ];
 
 // Get formatted date and time information about when post was created: "MMMM DD, YYYY - HH:MM"
-const post_created_formatted = function (post) {
+const post_created_formatted = function(post) {
       // Check if post object contains "created" attribute
       if (post.created) {
             // Convert post creation date (stored as a string representing the number of milliseconds since Unix epoch) to a JavaScript date object
@@ -54,7 +54,7 @@ const post_created_formatted = function (post) {
 }
 
 // Get number of ratings for a specific post, formatted as a string - "x votes"
-const post_ratings_formatted = function (post) {
+const post_ratings_formatted = function(post) {
       // Check if post has "num_ratings" property
       if (post.num_ratings != undefined) {
             // If post has exactly 1 rating, use singular form (1 vote)
@@ -72,30 +72,28 @@ const post_ratings_formatted = function (post) {
       }
 }
 
-const post_note_formatted = function (post) {
+const post_note_formatted = function(post) {
       if (post.note) {
             return linkifyHtml(post.note);
-      }
-      else {
+      } else {
             return "";
       }
 }
 
-const logout = function () {
+const logout = function() {
       console.log("Logging out...");
       firebase.auth().signOut();
       window.location.reload();
 }
 
 firebase.auth().onAuthStateChanged(
-      function (user) {
-            if (! user) {
+      function(user) {
+            if (!user) {
                   var login = $(".login");
                   if (login) {
                         login.removeClass("hidden");
                   }
-            }
-            else {
+            } else {
                   var new_post_button = $("#new-post-button");
                   if (new_post_button) {
                         new_post_button.removeClass("hidden");
@@ -111,7 +109,7 @@ firebase.auth().onAuthStateChanged(
 
 $("body").append($("<div></div>").load("includes/dialogs/error.html"));
 
-const error_dialog = function (title, message) {
+const error_dialog = function(title, message) {
       $("dialog#error h4#title").html(title);
       $("dialog#error p#message").html(message);
       $("dialog#error")[0].showModal();

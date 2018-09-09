@@ -1,6 +1,6 @@
 $(() => $("body").append($("<div></div>").load("includes/dialogs/share-post.html")));
 
-const share_post = function (post_title, post_id) {
+const share_post = function(post_title, post_id) {
       var share_post_dialog = $("#share-post-dialog");
       // if (! dialog.showModal) {
       //       dialogPolyfill.registerDialog(dialog);
@@ -14,7 +14,7 @@ const share_post = function (post_title, post_id) {
       });
 }
 
-const show_share_post = function (post_title, post_id, type) {
+const show_share_post = function(post_title, post_id, type) {
       var share_post_icon = $("<button></button>");
       share_post_icon.addClass("mdl-button mdl-js-button mdl-button--icon mdl-button--colored");
       share_post_icon.attr("onclick", "share_post('" + post_title + "', '" + post_id + "')");
@@ -26,8 +26,7 @@ const show_share_post = function (post_title, post_id, type) {
 
       if (type == "single") {
             var id = "share";
-      }
-      else if (type == "list") {
+      } else if (type == "list") {
             var id = "share-" + post_id;
       }
       share_post_icon.attr("id", id);
