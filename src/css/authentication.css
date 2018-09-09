@@ -1,0 +1,10 @@
+#firebaseui-auth-container {
+      width: 40% !important;
+      height: 40vh !important;
+      margin: 30vh 30%;
+      position: absolute;
+}
+
+#sign-up-message {
+      margin-left: 25px;
+}
