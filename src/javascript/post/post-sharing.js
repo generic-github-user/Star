@@ -6,7 +6,7 @@ const share_post = function(post_title, post_id) {
       //       dialogPolyfill.registerDialog(dialog);
       // }
       share_post_dialog.find(".title").html("Share Post<br />" + post_title);
-      share_post_dialog.find("input").attr("value", "https://example.com/post.html?id=" + post_id);
+      share_post_dialog.find("input").attr("value", "https://generic-github-user.github.io/Star/src/html/post.html?id=" + post_id);
 
       share_post_dialog[0].showModal();
       share_post_dialog.find(".close").click(function() {
