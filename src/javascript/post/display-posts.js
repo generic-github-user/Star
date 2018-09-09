@@ -14,48 +14,41 @@ firebase.database().ref("posts").once("value").then(
                   (key) => {
                         var post = post_data[key];
 
-                        var post_main = $("<div></div>");
-                        post_main.addClass("post");
+                        var post_main = $("<div class='post mdl-card mdl-shadow--2dp'></div>");
                         post_main.attr("id", "post-" + key);
-                        var left = $("<div></div>");
-                        left.addClass("left");
-                        var right = $("<div></div>");
-                        right.addClass("right");
 
+                        var post_info = $("<div class='mdl-card__supporting-text post-info'></div>");
                         var post_title_link = $("<a></a>");
-                        var destination_url = "post.html?id=" + key;
-                        post_title_link.attr("href", destination_url)
+                        post_title_link.attr("href", "post.html?id=" + key)
 
-                        var post_title = $("<h3></h3>");
-                        post_title.addClass("post-title");
+                        var post_title = $("<h3 class='mdl-card__title mdl-card__title-text post-title'></h3>");
                         post_title.text(post.title);
 
-
                         post_title_link.append(post_title);
-                        left.append(post_title_link);
 
-                        if (post.note) {
-                              var post_note = $("<h5></h5>");
-                              post_note.html(linkifyHtml(post.note));
-                              left.append(post_note);
+                        if (post.note != undefined && post.note != "") {
+                              post_info.append(linkifyHtml(post.note) + "<br />");
                         }
+                        if (post.created != undefined && post.created != "") {
+                              post_info.append(post_created_formatted(post) + "<br />");
+                        }
+                        post_info.append(post_ratings_formatted(post));
 
-                        var post_created = $("<p></p>");
-                        post_created.text(post_created_formatted(post));
-                        left.append(post_created);
+                        var post_menu = $("<div class='mdl-card__menu'></div>");
+                        var share_button = show_share_post(post.title, key, "list");
+                        post_menu.append(share_button.icon);
+                        $("#post-container").append(share_button.tooltip);
 
-                        var post_ratings = $("<p></p>");
-                        post_ratings.text(post_ratings_formatted(post));
-                        left.append(post_ratings);
+                        post_main.append(post_title_link);
+                        post_main.append(post_info);
+                        post_main.append(post_menu);
+                        post_main.append(generate_rating_buttons(key));
 
-                        right.append(generate_rating_buttons(key));
-
-                        post_main.append(left);
-                        post_main.append(right);
-                        post_main.append(show_share_post(post.title, key, "list"));
                         posts.append(post_main);
                   }
             );
+
+            $(".post-rating-button-container").addClass("mdl-card__actions mdl-card--border");
 
             update_post_ratings();
             componentHandler.upgradeDom();

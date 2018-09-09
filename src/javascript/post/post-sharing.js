@@ -21,7 +21,7 @@ const show_share_post = function(post_title, post_id, type) {
       share_post_icon.append('<i class="material-icons">share</i>');
 
       var share_post_icon_tooltip = $("<div></div>");
-      share_post_icon_tooltip.addClass("mdl-tooltip share-tooltip");
+      share_post_icon_tooltip.addClass("mdl-tooltip");
       share_post_icon_tooltip.text('Share "' + post_title + '"');
 
       if (type == "single") {
@@ -32,10 +32,8 @@ const show_share_post = function(post_title, post_id, type) {
       share_post_icon.attr("id", id);
       share_post_icon_tooltip.attr("data-mdl-for", id);
 
-      var share_post_container = $("<div></div>");
-      share_post_container.addClass("post-sharing-icon");
-      share_post_container.append(share_post_icon);
-      share_post_container.append(share_post_icon_tooltip);
-
-      return share_post_container;
+      return {
+            "icon": share_post_icon[0].outerHTML,
+            "tooltip": share_post_icon_tooltip[0].outerHTML
+      };
 }

@@ -92,3 +92,18 @@ a:active {
 #content {
       width: 100%;
 }
+
+.mdl-card {
+      /* z-index: auto; */
+      overflow: visible !important;
+}
+
+.mdl-card__menu {
+      opacity: 0;
+      transition: opacity 0.5s ease !important;
+}
+
+.mdl-card:hover .mdl-card__menu {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+}

@@ -1,26 +1,16 @@
 .post {
-      width: 90%;
-      display: inline-block;
-      position: relative;
-      padding: 10px;
-      margin: 1% 0%;
-      background-color: #EEE;
-      box-shadow: 1px 1px 4px 1px #888;
-      border-radius: 2px;
-      transition: border-radius 1s ease, background-color 1.5s ease;
+      width: 90% !important;
+      /* display: inline-block; */
+      /* position: relative; */
+      /* padding: 10px; */
+      margin-bottom: 2%;
+      filter: brightness(0.99);
+      transition: filter 0.5s ease;
 }
 
-.post-sharing-icon {
-      position: absolute !important;
-      top: 15px;
-      right: 15px;
-      opacity: 0;
-      transition: opacity 0.5s ease !important;
-}
-
-.post:hover .post-sharing-icon {
-      opacity: 1;
-      transition: opacity 0.5s ease;
+.post:hover {
+      filter: brightness(1);
+      transition: filter 0.5s ease;
 }
 
 .post:hover {
@@ -28,11 +18,11 @@
       transition: all 1.5s ease;
 }
 
-.post * {
-      margin: 0px !important;
+.post-title {
+      /* display: inline-block !important; */
+      color: #444;
 }
 
-.post-title {
-      color: #444;
-      display: inline-block;
+.post-info {
+      padding-top: 0px !important;
 }
