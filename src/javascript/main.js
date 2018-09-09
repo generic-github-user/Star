@@ -92,14 +92,14 @@ firebase.auth().onAuthStateChanged(
                         login.removeClass("hidden");
                   }
             } else {
-                  var new_post_button = $("#new-post-button");
-                  if (new_post_button) {
-                        new_post_button.removeClass("hidden");
-                  }
-
                   var logout = $(".logout");
                   if (logout) {
                         logout.removeClass("hidden");
+                  }
+
+                  var new_post_button = $("#new-post-button");
+                  if (new_post_button) {
+                        new_post_button.removeClass("hidden");
                   }
             }
       }

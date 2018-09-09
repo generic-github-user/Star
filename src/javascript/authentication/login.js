@@ -13,7 +13,6 @@ firebase.auth().onAuthStateChanged(
                               "uiShown": function() {
                                     console.log("Updating login panel information...");
                                     $(".firebaseui-title").text("Sign In to Star");
-                                    $(".firebaseui-id-page-password-sign-in").append("<p id='sign-up-message'>Don't have an account? <a href='sign-up.html'>Create one here</a></p>");
                               }
                         },
                         "signInSuccessUrl": "index.html",
