@@ -1,8 +1,8 @@
 // display_post.js
 // Functions for displaying a single post on the individual post page
 
-$("#header").load("includes/header.html");
-$("body").append($("<div></div>").load("includes/dialogs/delete-post.html"));
+$("#header").load("../includes/header.html");
+$("body").append($("<div></div>").load("../includes/dialogs/delete-post.html"));
 
 console.log("Loading post...");
 
@@ -64,7 +64,7 @@ firebase.database().ref("posts/" + post_id).once("value").then(
                                           delete_post_dialog[0].showModal();
                                     }
 
-                                    post_container.append($("<div></div>").load("includes/buttons/delete-post.html"));
+                                    post_container.append($("<div></div>").load("../includes/buttons/delete-post.html"));
 
                                     componentHandler.upgradeDom();
                               }
