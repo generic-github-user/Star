@@ -1,17 +1,6 @@
 // create_post.js
 // Functions for creating a new Star post
 
-// Get dialog element and store it in a variable
-var dialog = $("dialog");
-// Display dialog polyfill for older browsers that do not support the experimental HTML <dialog> element
-// if (! dialog.showModal) {
-//       dialogPolyfill.registerDialog(dialog);
-// }
-// Add event listener to dialog box close button
-dialog.find(".close").click(function() {
-      // Close dialog box
-      dialog[0].close();
-});
 
 // Open new post window to create a new post
 const new_post = function() {
@@ -81,6 +70,9 @@ const publish_post = function() {
                   "Displaying error dialog box..."
             );
             // Display dialog box
-            dialog[0].showModal();
+            error_dialog(
+                  "No Title",
+                  "New post must have a title."
+            );
       }
 }

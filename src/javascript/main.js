@@ -109,10 +109,16 @@ firebase.auth().onAuthStateChanged(
 
 $("body").append($("<div></div>").load("includes/dialogs/error.html"));
 
+// Display dialog polyfill for older browsers that do not support the experimental HTML <dialog> element
+// if (! dialog.showModal) {
+//       dialogPolyfill.registerDialog(dialog);
+// }
+
 const error_dialog = function(title, message) {
       $("dialog#error h4#title").html(title);
       $("dialog#error p#message").html(message);
       $("dialog#error")[0].showModal();
+      // Add event listener to dialog box close button
       $("dialog#error .close").click(() => $("dialog#error")[0].close());
 }
 
