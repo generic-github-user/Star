@@ -44,9 +44,13 @@ const publish_post = function() {
                   "title": title,
                   "note": note,
                   "num_ratings": 0,
+                  "ratings": {},
                   "created": Date.now()
             };
-            console.log("Storing post information in database...");
+            console.log(
+                  "Storing post information in database...",
+                  post_info
+            );
             database.ref("posts/" + key).set(post_info);
             $("#new-post-panel").toggleClass("visible");
 

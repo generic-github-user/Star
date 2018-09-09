@@ -86,13 +86,24 @@ const logout = function() {
 
 firebase.auth().onAuthStateChanged(
       function(user) {
+            var login = $(".login");
+            var logout = $(".logout");
+
             if (!user) {
-                  var login = $(".login");
+                  // User is not logged in
                   if (login) {
                         login.removeClass("hidden");
                   }
+                  if (logout) {
+                        logout.addClass("hidden");
+                  }
             } else {
-                  var logout = $(".logout");
+                  // User is logged in
+
+                  // Hide login button (if it exists)
+                  if (login) {
+                        login.addClass("hidden");
+                  }
                   if (logout) {
                         logout.removeClass("hidden");
                   }
