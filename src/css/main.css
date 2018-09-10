@@ -42,10 +42,10 @@ a:active {
       font-size: 200%;
 }
 
-.mdl-dialog__actions>button {
+/* .mdl-dialog__actions>button {
       width: 50%;
       height: 40px;
-}
+} */
 
 .mdl-spinner {
       margin: 40vh 48vw;
